@@ -1,0 +1,18 @@
+<%- include('../partials/header') -%>
+<div class="container" >
+    <h1 style="color: white;"><%= blog.title %> </h1>
+    <div class="row">
+        <div class="col-md-9 mx-auto">
+            <div class="thumbnail" id="showBlog" style="margin: 25px auto;">
+                <img src="<%= blog.image %> " class="img-responsive">
+                <div class="caption-full">
+                    <span class="pull-right text-muted text-sm"><%= blog.created.toDateString() %> </span>
+                    <h2><%= blog.title %></h2>
+                    <p><%= blog.body %> </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer') -%>
