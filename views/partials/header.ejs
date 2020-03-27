@@ -6,52 +6,60 @@
         <!-- <link rel="stylesheet" type="text/css" href="/stylesheets/style.css"> -->
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <style>
 body{
 	margin: 0;
 	padding: 0;
-	background: url("/images/back.jpg");
+	background: url("https://i.pinimg.com/originals/fc/e9/7e/fce97eba95fd3de922940e31f8ab8982.gif");
 	background-size: cover;
-	background-position: center;
+    background-attachment: fixed;
 	font-family: 'Josefin sans', sans-serif;
 	align-items: center;
 	font-size: large;
 }
-.container {
-  margin-top: 80px;
+p {
+	color: #45b3e0;
 }
+/* .container {
+  margin-top: 80px;
+} */
 #myNavbar a {
     text-decoration: none;
-    color: rgba(0,0,0,0.5);
+    color: white;
 } 
 #myNavbar a:hover {
-	font-size: larger;
+	color: #45b3e0;
 }
 .navbar{
-  margin-top: -80px;
   width: 100vw;
-  height: 70px !important;
-  position: fixed;
-  background-color: white;
   font-size: larger;
-  color: rgba(0,0,0,0.5);
   z-index: 1000;
+  padding-right: 7px;
+  padding-bottom: 0;
+}
+nav.navbar.navbar-expand-sm {
+	background-color: black;
 }
 .navbar-brand {
-	min-height: 95px;
-	border-radius: 50px !important;
-	padding-top: none;
+	min-height: 90px;
+	border-radius: 50px;
+	padding-top:18px;
+	padding-bottom:12px;
 	margin-top: -14px !important;
 }
+.navbar-nav li a {
+	padding-top: 19px;
+	line-height: 34px;
+}
 .navbar .navbar-toggle {
-	background-color: rgba(0,0,0,.5);
+	background-color: rgba(0,0,0,0.9);
 }
 #heading{
-	color: white;
-	background-color: rgba(0,0,0,.5);
+	background-color: rgba(0,0,0,0.9);
+	color:white;
 	margin: 0px 30px 30px 30px;
-	padding: 75px;
+	padding: 20px;
 	font-family: josefin sans,sans serif;
 	font-size: xx-large !important;
  
@@ -61,23 +69,20 @@ body{
 }
 #youtube {
 	color: white;
-	background-color: rgba(0,0,0,.5);
+	background-color: rgba(0,0,0,0.9);
 	font-family: josefin sans,sans serif;
 	margin: 30px;
 	padding: 20px;
 }
-#blogs,#news,#updates {
+#blogs,#updates {
 	color: white;
-	background-color: rgba(0,0,0,.5);
+	background-color: rgba(0,0,0,0.9);
 	font-family: josefin sans,sans serif;
 	margin: 30px;
-	padding: 20px;
-}
-iframe {
-	padding: 10px;
+	padding: 20px 5px;
 }
 #showBlog {
-	background-color: rgba(0,0,0,.5);
+	background-color: rgba(0,0,0,0.9);
 	color: white;
 	align-self: center;
 }
@@ -88,7 +93,7 @@ iframe {
 	padding: 10px;
 }
 .well{
-	background-color: rgba(0,0,0,.5);
+	background-color: rgba(0,0,0,0.9);
 	color: white;
 }
 #blogList {
@@ -97,123 +102,43 @@ iframe {
 #blogListImage {
 	width: 100%;
 }
-/* .card {
-    position: absolute;
-    margin: 30px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: 300px;
-    height: 400px;
-    transform-style: preserve-3d;
-    perspective: 600px;
-    transition: 0.5s;
-} */
-/* .card .front {
-	position: absolute;
-	top: 0;
-	left: 0;
+#delete-form {
+	display: inline;
+}
+iframe {
+	padding: 0;
 	width: 100%;
-	height: 100%;
-	background: #000;
-	backface-visibility: hidden;
-	transform: rotateX(0deg);
-	transition: 0.5s;
 }
-.card:hover .front {
-	transform: rotateX(-180deg);
-}
-.card .back {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: #000;
-	backface-visibility: hidden;
-	transform: rotateX(180deg);
-	transition: 0.5s;
-}
-.card .back:before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: -50%;
-	width: 100%;
-	height: 100%;
-	background: rgba(255,255,255,0.1);
-}
-.card:hover .back {
-	transform: rotateX(0deg);
-}
-.card .back .details {
-	position: absolute;
-	top: 50%;
-	left: 0;
-	transform: translateY(-50%);
-	width: 100%;
-	text-align: center;
-	padding: 20px;
-	box-sizing: border-box;
-}
-.card .back .details h2 {
-	margin: 0;
-	padding : 0;
-	font-size: 24px;
-	color: #fff;
-}
-.card .back .details h2 span {
-	color: #a7a7a7;
-	font-size: 16px;
-}
-.social-icons {
-	padding: 10px 0;
-}
-.social-icons a {
-	display: inline-block;
-	width: 36px;
-	height: 36px;
-	text-align: center;
-	background: #262626;
-	color: #fff;
-	text-decoration: none;
-	border-radius: 50%;
-	transition: 0.5s;
-}
-.social-icons a .fa {
-	line-height: 36px;
-}
-.social-icons a:hover {
-	background: #e91e63;
-}
-.container {
-	max-width: 1000px;
-	margin: 100px auto;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
+.jumbotron {
+	padding: 10px 60px;
 }
 .card {
-	position: relative;
-	margin : 20px 0;
-	width: 300px;
-	height: 400px;
-	background: #fff;
-	transform-style: preserve-3d;
-	transform: perspective(2000px);
-	transition: 1s;
-	box-shadow: inset 300px 0px 50px rgba(0,0,0,.5);
+	background-color:rgba(0,0,0,0.9);
+	margin: 20px 30px;
+	max-width: 300px;
 }
-.card:hover {
-	transform: perspective(2000px) rotate(-10deg);
-	box-shadow: inset 20px 0px 50px rgba(0,0,0,.5);
-
-} */
+.card-title {
+	color: white;
+}
+img.card-img-top.thumbnail {
+	width: 100%;
+	height: 300px;
+}
+.card-body {
+	text-align: center;
+}
+.card i.fa.fa-facebook, i.fa.fa-github, i.fa.fa-linkedin {
+	font-size: x-large;
+	padding: 10px 15px;
+}
+#blogs#facebook {
+	max-width: 500px;
+}
         </style>
     </head>
     <body>
       <header>
-            <nav class="navbar navbar-expand-sm navbar-light bg-light navbar-fixed fixed-top">
+            <nav class="navbar navbar-expand-sm navbar-inverse bg-dark navbar-dark">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
             <span class="icon-bar"></span>
@@ -224,27 +149,40 @@ iframe {
               <img src="https://scontent.fdel13-1.fna.fbcdn.net/v/t1.0-9/p960x960/44961125_2238267206217976_5750046574583480320_o.jpg?_nc_cat=109&_nc_sid=85a577&_nc_ohc=mH2vyplyeHQAX9VlpBl&_nc_ht=scontent.fdel13-1.fna&_nc_tp=6&oh=77f36d3dd80f69c0199320ddeec06fdf&oe=5E9ACD61" class="navbar-brand">
          </a>
         </div>
-        <div class="collapse navbar-collapse" id="myNavbar" style="background-color: white;"> 
+        <div class="collapse navbar-collapse" id="myNavbar" style="color: #45b3e0;" > 
           <ul class="nav navbar-nav">
             <li><a href="/">Home</a></li>
             <li><a href="/explore">Explore</a></li>
             <li><a href="/blogs">Blogs</a></li>
-            <li><a href="/news">News</a></li>
-            <li><a href="/updates">Updates</a></li>
+			<!-- <li><a href="/updates">Updates</a></li> -->
+            <li><a href="/members">Members</a></li>
           </ul>
           
           <ul class="nav navbar-nav navbar-right">
-            <li><a href=""><span class="glyphicon glyphicon-info-sign"></span> About Us</a></li>
+            <!-- <li><a href=""><span class="glyphicon glyphicon-info-sign"></span> About Us</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-envelope"></span> Contact Us<span class="caret"></span></a>
               <ul class="dropdown-menu ml-30px">
                 <li><a href="">Facebook</a></li>
                 <li><a href="">Instagram</a></li>
               </ul>
-            </li>
-            <!-- <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
+			</li> -->
+		<% if(!currentUser){ %>
+            <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+			<li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+		<% } else { %>
+		 <li><a href="#"><i class="fa fa-user-circle-o" aria-hidden="true"></i> <%= currentUser.username %></a></li>
+		 <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+		<% } %>
           </ul>
         </div>
     </nav>
-    </header>
+	</header>
+	<div class="container">
+		<% if(error && error.length > 0 ){ %>
+         <div class="alert alert-danger" role="alert"><%= error %> </div>
+		<% } %>
+		<% if(success && success.length > 0 ){ %>
+			<div class="alert alert-success" role="alert"><%= success %> </div>
+		   <% } %>
+	</div>
