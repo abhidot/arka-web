@@ -3,7 +3,7 @@ var router  = express.Router({mergeParams:true});
 var Blog  = require("../models/blog");
 var Comment    = require("../models/comment");
 var middleware = require("../middleware");
-
+var expressSanitizer = require("express-sanitizer");
 
 
 router.get("/",function(req,res){
@@ -24,7 +24,7 @@ router.post("/",middleware.isLoggedIn,function(req,res){
         id : req.user._id,
         username : req.user.username
     }
-    var newBlog = { title: req.body.title, image : req.body.image , body : req.body.body, author : author};
+    var newBlog = { title: req.body.title, image : req.body.image , body : req.sanitize(req.body.body), author : author};
     Blog.create(newBlog,function(err,newlyCreated){
         if(err)
         console.log(err);

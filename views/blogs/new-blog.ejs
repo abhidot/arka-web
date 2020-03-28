@@ -1,6 +1,6 @@
 <%- include('../partials/header') -%>
     <div class="container" style="color: white;">
-        <div class="form-group" style="min-width:350px; width: 40%;margin:25px auto;">
+        <div class="form-group" style="min-width:350px; width: 60%;margin:25px auto;">
           <form action="/blogs" method="POST">
             <h1 style="text-align:center; ">New Blog</h1>
             <div class="form-group">
@@ -22,4 +22,8 @@
           
         </div>
     </div>
+<script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+    <script>
+      CKEDITOR.replace('body');
+    </script>
     <%- include('../partials/footer') -%>
