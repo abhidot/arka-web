@@ -5,7 +5,10 @@ var userSchema =mongoose.Schema({
     username : String,
     email    : String,
     password : String,
-    admin    : false
+    admin    : {
+        type:Boolean,
+        default:false
+    }
 });
 
 userSchema.plugin(passportLocalMongoose);

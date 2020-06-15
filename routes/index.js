@@ -2,11 +2,23 @@ var express = require("express");
 var router  = express.Router({mergeParams:true});
 var User  = require("../models/user");
 var passport = require("passport");
+var Update = require("../models/Update");
 var middleware = require("../middleware");
 
 router.get("/",function(req,res){
-    res.render("index",{currentUser:req.user});
-})
+    Update.find({},(err,allUpdates) => {
+        if(err){
+            console.log(err);
+        }else{
+            var latestUpdates ;
+            if(allUpdates){
+                    latestUpdates = [allUpdates.reverse()[0]];
+            }
+            res.render("index",{currentUser:req.user,update:latestUpdates});
+        }
+    })
+    
+});
 router.get("/members",function(req,res){
     res.render("members");
 })
@@ -17,7 +29,7 @@ router.get("/register",function(req,res){
     res.render("auth/register");
 })
 router.post("/register",function(req,res){
-    User.register(new User({username : req.body.username, email : req.body.email}),req.body.password,function(err,user){
+    User.register(new User({username : req.body.username, email : req.body.email, admin : false}),req.body.password,function(err,user){
         if(err){
             req.flash("error",err.message);
             res.render("auth/register");

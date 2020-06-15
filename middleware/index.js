@@ -24,6 +24,7 @@ middlewareObj.checkBlogOwnership = function(req,res,next){
         res.redirect("back");
     }
 }
+
 middlewareObj.checkCommentOwnership = function(req,res,next){
     if(req.isAuthenticated()){
         Comment.findById(req.params.comment_id,function(err,foundComment){
@@ -72,5 +73,13 @@ middlewareObj.isLoggedIn = function(req,res,next){
     res.redirect("/login");
     
 }
-
+middlewareObj.isAdmin = function(req,res,next){
+    if(req.isAuthenticated()){
+        // if(req.user.admin.toString()=="true")
+            return next();
+    }
+    req.flash("error","Only admins can add updates.");
+    res.redirect("/updates");
+    
+}
 module.exports = middlewareObj;
