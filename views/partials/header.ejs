@@ -7,39 +7,139 @@
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-        <style>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+		<style>
+html {
+	--bg-panel : #FCFCFC;
+	--bg : #EBEBEB;
+	--headings : /*#45b3e0*/ #3694FF;
+	--text : #333333;
+}
+html[data-theme='dark'] {
+    --bg-panel: #333333;
+    --bg: #434343;
+    --headings: #3694FF;
+    --text: #B5B5B5;
+}
+p {
+        color: var(--color-text);
+        grid-area: content;
+        font-size: 1.1em;
+        line-height: 1.9em;
+        margin-top: 2em;
+    }
+.toggle-container .switch {
+  position: relative;
+  margin-top: 10px;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+.toggle-container {
+	color:var(--text);
+	margin-top: 10px;
+}
+html.transition,
+html.transition *,
+html.transition *:before,
+html.transition *:after {
+  transition: all 750ms !important;
+  transition-delay: 0 !important;
+}
+h1,h2,h3,h4,h5 {
+	color:var(--headings);
+}
 body{
 	margin: 0;
 	padding: 0;
-	background: url("https://i.pinimg.com/originals/fc/e9/7e/fce97eba95fd3de922940e31f8ab8982.gif");
+	/* background: url("https://i.pinimg.com/originals/fc/e9/7e/fce97eba95fd3de922940e31f8ab8982.gif");
 	background-size: cover;
-    background-attachment: fixed;
-	font-family: 'Josefin sans', sans-serif;
+    background-attachment: fixed; */
+	background-color : var(--bg);
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
 	align-items: center;
-	font-size: large;
+	/* font-size: large; */
 }
 p {
-	color: #45b3e0;
+	color:var(--text);
 }
 /* .container {
   margin-top: 80px;
 } */
 #myNavbar a {
     text-decoration: none;
-    color: white;
+    color: var(--text);
 } 
 #myNavbar a:hover {
-	color: #45b3e0;
+	color: var(--headings);
 }
 .navbar{
   width: 100vw;
   font-size: larger;
+  font-weight: 700;
   z-index: 1000;
+  margin-bottom: 60px;
   padding-right: 7px;
   padding-bottom: 0;
+  border: none;
+  box-shadow: 3px 3px 15px var(--text);
 }
 nav.navbar.navbar-expand-sm {
-	background-color: black;
+	background-color: var(--bg-panel);
 }
 .navbar-brand {
 	min-height: 90px;
@@ -52,39 +152,65 @@ nav.navbar.navbar-expand-sm {
 	padding-top: 19px;
 	line-height: 34px;
 }
+button.navbar-toggle, button.navbar-toggle.collapsed {
+	color:var(--bg);
+	align-items: center;
+	margin:0;
+}
+a {
+	color:var(--text);
+}
 .navbar .navbar-toggle {
-	background-color: rgba(0,0,0,0.9);
+	background-color: var(--bg-panel);
+	border:none;
+}
+.navbar-toggle{
+	padding:20px;
+	/* align-items: center; */
+}
+.icon-bar {
+	background-color:var(--text) !important;
 }
 #heading{
-	background-color: rgba(0,0,0,0.9);
-	color:white;
-	margin: 0px 30px 30px 30px;
-	padding: 20px;
-	font-family: josefin sans,sans serif;
+	background-color:var(--bg-panel);
+	color:var(--text);
+	/* margin: 0px 30px 30px 30px; */
+	margin-bottom: 30px;
+	padding: 10px;
+	font-family: Montserrat,sans serif;
+	font-weight : 300;
 	font-size: xx-large !important;
+	box-shadow: 3px 3px 15px var(--text); 
  
+}
+#heading h1,#heading h2, #heading h3,#heading h4{
+	color: var(--text);
 }
 #myCarousel {
 	float: right;
+	margin: 0 10px;
 }
 #youtube {
-	color: white;
-	background-color: rgba(0,0,0,0.9);
+	color: var(--text);
+	background-color: var(--bg-panel);
 	font-family: josefin sans,sans serif;
-	margin: 30px;
-	padding: 20px;
+	margin-bottom: 30px;
+	padding: 10px;
+	box-shadow: 3px 3px 15px var(--text); 
 }
 #blogs,#updates {
-	color: white;
-	background-color: rgba(0,0,0,0.9);
+	color: var(--text);
+	background-color: var(--bg-panel);
 	font-family: josefin sans,sans serif;
-	margin: 30px;
-	padding: 20px 5px;
+	margin-bottom: 30px;
+	padding: 10px 5px;
+	box-shadow: 3px 3px 15px var(--text); 
 }
 #showBlog {
-	background-color: rgba(0,0,0,0.9);
-	color: white;
+	color: var(--text);
+	background-color: var(--bg-panel);
 	align-self: center;
+	box-shadow: 3px 3px 15px var(--text);
 }
 #showBlog img {
 	width: 100%;
@@ -92,9 +218,14 @@ nav.navbar.navbar-expand-sm {
 #showBlog .caption-full {
 	padding: 10px;
 }
+hr {
+	background-color: var(--bg-panel);
+}
 .well{
-	background-color: rgba(0,0,0,0.9);
-	color: white;
+	color: var(--text);
+	border:none;
+	background-color: var(--bg-panel);
+	box-shadow: 3px 3px 15px var(--text); 
 }
 #blogList {
 	float: right;
@@ -106,19 +237,26 @@ nav.navbar.navbar-expand-sm {
 	display: inline;
 }
 iframe {
-	padding: 0;
+	margin-bottom: 10px;
 	width: 100%;
 }
 .jumbotron {
 	padding: 10px 60px;
+	background-color: var(--bg);
 }
 .card {
-	background-color:rgba(0,0,0,0.9);
+	color: var(--text);
+	background-color: var(--bg-panel);
 	margin: 20px 30px;
 	max-width: 300px;
+	border-radius: 10px;
+	box-shadow: 3px 3px 15px var(--text);
+}
+.card img {
+	border-radius: 10px;
 }
 .card-title {
-	color: white;
+	color: var(--headings);
 }
 img.card-img-top.thumbnail {
 	width: 100%;
@@ -127,12 +265,20 @@ img.card-img-top.thumbnail {
 .card-body {
 	text-align: center;
 }
-.card i.fa.fa-facebook, i.fa.fa-github, i.fa.fa-linkedin {
+i.fa.fa-facebook, i.fa.fa-github, i.fa.fa-instagram, i.fa.fa-linkedin{
 	font-size: x-large;
-	padding: 10px 15px;
+	padding : 3px;
+}
+.card i.fa.fa-facebook, i.fa.fa-github, i.fa.fa-linkedin{
+	padding : 10px 15px;
 }
 #blogs#facebook {
 	max-width: 500px;
+}
+footer {
+	background-color: var(--bg-panel);
+	color: var(--text);
+	box-shadow: 3px 3px 15px var(--text);
 }
         </style>
     </head>
@@ -146,10 +292,10 @@ img.card-img-top.thumbnail {
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="#">
-              <img src="https://scontent.fdel13-1.fna.fbcdn.net/v/t1.0-9/p960x960/44961125_2238267206217976_5750046574583480320_o.jpg?_nc_cat=109&_nc_sid=85a577&_nc_ohc=mH2vyplyeHQAX9VlpBl&_nc_ht=scontent.fdel13-1.fna&_nc_tp=6&oh=77f36d3dd80f69c0199320ddeec06fdf&oe=5E9ACD61" class="navbar-brand">
+              <img src="../../images/arka.jpg" class="navbar-brand">
          </a>
         </div>
-        <div class="collapse navbar-collapse" id="myNavbar" style="color: #45b3e0;" > 
+        <div class="collapse navbar-collapse" id="myNavbar" > 
           <ul class="nav navbar-nav">
             <li><a href="/">Home</a></li>
             <li><a href="/explore">Explore</a></li>
@@ -168,6 +314,15 @@ img.card-img-top.thumbnail {
                 <li><a href="">Instagram</a></li>
               </ul>
 			</li> -->
+			<li><a href="#">Dark Mode </a>
+				
+			</li>
+			<li class="toggle-container">
+					<label class="switch" for="swith">
+					<input type="checkbox" id="swith" name="theme">
+					<span class="slider round"></span>
+				  </label>
+			</li>
 		<% if(!currentUser){ %>
             <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 			<li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>

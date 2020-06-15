@@ -100,8 +100,8 @@
     <hr style="width: 40%; align-content: center;">
     </section>
     
-    <section id="blogs">
-      <div class="row">
+    <section id="updates">
+      <!-- <div class="row">
         <div class="col-md-3">
         </div>
          <div class="col-md-6">
@@ -112,10 +112,35 @@
             <div class="fb-page col-md-8" id="facebook" data-href="https://www.facebook.com/ARKAiitism" data-tabs="timeline" data-width="" data-height="600" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/ARKAiitism" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/ARKAiitism">ARKA-Astronomy club,IIT ISM Dhanbad</a></blockquote></div>
           </div>
       </div>
-    <hr style="width: 40%; align-content: center;">
+    <hr style="width: 40%; align-content: center;"> -->
+    <h2 style="text-align: center;">Latest Update</h2>
+    <br>
+    <% update.forEach(update => { %>
+      <div class="well mx-auto">
+      <div class="row">
+        <div class="col-md-8">
+          <h3><%= update.title %> </h3>
+          <p><%- update.description %> </p>
+        </div>
+        <div class="col-md-4 col-12" id="blogList">
+          <div class="text-muted text-sm" style="margin-top: 10px; margin-bottom: 20px;"><i class="fa fa-user-circle" aria-hidden="true"></i> <%= update.author.username %> </div>
+          <h4 class="text-muted">DATE</h4>
+          <h4><%= update.datetime.toLocaleDateString() %> </h4>
+          <h4 class="text-muted">DATE</h4>
+          <h4><%= update.datetime.toLocaleTimeString() %> </h4>
+          <% if(update.facebook){ %>
+            <a href="<%= update.facebook %> "><i class="fa fa-facebook" aria-hidden="true"></i> </a>
+          <% }  %> 
+          <% if(update.instagram){ %>
+            <a href="<%= update.instagram %> "><i class="fa fa-instagram" aria-hidden="true"></i> </a>
+          <% }  %>
+        </div>
+      </div>
+    </div>
+    <% }); %> 
     
     </section>
 
-</div>
+  </div>
 
 <%- include('partials/footer') -%>
