@@ -12,7 +12,8 @@ var bodyParser = require("body-parser"),
     app        = express(),
     seedBlog   = require("./seedBlog"),
     seedRecommendation = require("./seedRecommendation"),
-    methodOverride = require("method-override");
+    methodOverride = require("method-override"),
+    expressSanitizer = require("express-sanitizer");
 
 // seedBlog();
 // seedRecommendation();
@@ -21,14 +22,26 @@ var bodyParser = require("body-parser"),
 var blogRoutes   = require("./routes/blogs"),
     exploreRoutes= require("./routes/explore"),
     indexRoutes  = require("./routes/index"),
-    commentRoutes= require("./routes/comments");
+    commentRoutes= require("./routes/comments"),
+    updateRoutes=  require("./routes/updates");
 
 //APP CONFIG
 // mongoose.connect("mongodb://localhost/arka-web-app");
-mongoose.connect(process.env.DATABASEURL);
+const connectDB =async  () => {
+    try {
+        mongoose.connect("mongodb+srv://abhishek:abhi123@arka-qfffc.mongodb.net/test?retryWrites=true&w=majority",{
+    useNewUrlParser:true,
+    useUnifiedTopology:true});
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+connectDB();
 
 app.set("view engine","ejs");
 
+app.use(expressSanitizer());
 app.use(require("express-session")({
     secret : "I am loving NodeJS",
     resave : false,
@@ -58,6 +71,8 @@ app.use("/blogs",blogRoutes);
 app.use("/explore",exploreRoutes);
 app.use("/",indexRoutes);
 app.use("/blogs/:id/comments",commentRoutes);
+app.use("/updates",updateRoutes);
+
 
 
 // const delay = require('delay');
@@ -70,6 +85,6 @@ app.use("/blogs/:id/comments",commentRoutes);
 // });
 
 
-app.listen(process.env.PORT,process.env.IP,function(){
+app.listen(3000,process.env.IP,function(){
     console.log("ARKA app has started!!")
 });
