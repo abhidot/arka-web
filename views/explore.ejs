@@ -39,7 +39,7 @@
         <% } %>
       </div>
     </div>
-    <iframe style = "padding-bottom:25px;" height="280"src="<%= recommendation.url.substr(0,43).replace("watch?v=","embed/") %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe style = "padding-bottom:25px;" height="280"src="https://www.youtube.com/embed/<%= recommendation.url.substr(Math.max(recommendation.url.lastIndexOf('='),recommendation.url.lastIndexOf('/'))+1,11) %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
     <% }); %> 
    </div>
